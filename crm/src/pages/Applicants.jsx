@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getApplicants } from '../api/applicants';
 import { useAuth } from '../context/AuthContext';
+import { HiPlus, HiMagnifyingGlass, HiXMark, HiUser, HiArrowRight } from 'react-icons/hi2';
 
 const STATUS_BADGE = {
   PENDING: 'bg-amber-100 text-amber-700',
@@ -61,9 +62,7 @@ const Applicants = () => {
         {canCreate && (
           <Link to="/applicants/new"
             className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-700 transition-colors shadow-sm shadow-blue-200">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
+            <HiPlus className="w-4 h-4" />
             New Applicant
           </Link>
         )}
@@ -88,9 +87,7 @@ const Applicants = () => {
       {/* Search & quota filter bar */}
       <div className="flex gap-3 flex-wrap">
         <div className="relative flex-1 min-w-52">
-          <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-          </svg>
+          <HiMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
           <input
             type="text"
             placeholder="Search by name or program…"
@@ -109,7 +106,7 @@ const Applicants = () => {
         {(filter.status || filter.quota || search) && (
           <button onClick={() => { setFilter({ status: '', quota: '' }); setSearch(''); }}
             className="flex items-center gap-1.5 px-3 py-2.5 text-sm text-slate-400 hover:text-slate-700 border border-slate-200 rounded-xl bg-white hover:bg-slate-50 transition-colors">
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+            <HiXMark className="w-3.5 h-3.5" />
             Clear
           </button>
         )}
@@ -125,9 +122,7 @@ const Applicants = () => {
         <div className="bg-red-50 border border-red-200 rounded-xl px-5 py-4 text-sm text-red-600">{error}</div>
       ) : filtered.length === 0 ? (
         <div className="bg-white rounded-2xl border border-slate-200 flex flex-col items-center justify-center py-20">
-          <svg className="w-10 h-10 text-slate-200 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-          </svg>
+          <HiUser className="w-10 h-10 text-slate-200 mb-3" />
           <p className="text-sm font-medium text-slate-400">
             {applicants.length === 0 ? 'No applicants yet.' : 'No applicants match your filters.'}
           </p>
@@ -177,7 +172,7 @@ const Applicants = () => {
                     <Link to={`/applicants/${a._id}`}
                       className="opacity-0 group-hover:opacity-100 inline-flex items-center gap-1 text-xs text-blue-600 font-semibold hover:text-blue-800 transition-opacity">
                       View
-                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                      <HiArrowRight className="w-3 h-3" />
                     </Link>
                   </td>
                 </tr>

@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createApplicant } from '../api/applicants';
 import { getPrograms } from '../api/programs';
+import { HiArrowLeft, HiCheckCircle, HiExclamationCircle } from 'react-icons/hi2';
 
 const QUOTA_INFO = {
-  KCET:       { color: 'bg-blue-100 text-blue-700',   icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z',  label: 'Seat auto-allocated on creation' },
-  COMEDK:     { color: 'bg-violet-100 text-violet-700', icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Seat auto-allocated on creation' },
-  MANAGEMENT: { color: 'bg-amber-100 text-amber-700',  icon: 'M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z', label: 'Starts as PENDING — manual allocation required' },
+  KCET:       { color: 'bg-blue-100 text-blue-700',    Icon: HiCheckCircle,       label: 'Seat auto-allocated on creation' },
+  COMEDK:     { color: 'bg-violet-100 text-violet-700', Icon: HiCheckCircle,       label: 'Seat auto-allocated on creation' },
+  MANAGEMENT: { color: 'bg-amber-100 text-amber-700',  Icon: HiExclamationCircle, label: 'Starts as PENDING — manual allocation required' },
 };
 
 const CreateApplicant = () => {
@@ -43,9 +44,7 @@ const CreateApplicant = () => {
       {/* Back */}
       <button onClick={() => navigate(-1)}
         className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-slate-700 transition-colors mb-6">
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-        </svg>
+        <HiArrowLeft className="w-4 h-4" />
         Back to Applicants
       </button>
 
@@ -134,9 +133,7 @@ const CreateApplicant = () => {
             {/* Quota hint */}
             {quotaInfo && (
               <div className={`flex items-start gap-2.5 rounded-xl px-4 py-3 text-xs font-medium border ${quotaInfo.color} border-current/20`}>
-                <svg className="w-4 h-4 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d={quotaInfo.icon} />
-                </svg>
+                <quotaInfo.Icon className="w-4 h-4 mt-0.5 shrink-0" />
                 {quotaInfo.label}
               </div>
             )}

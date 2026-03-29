@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getPrograms, createProgram } from '../api/programs';
 import { useAuth } from '../context/AuthContext';
+import { HiPlus, HiXMark, HiAcademicCap } from 'react-icons/hi2';
 
 const INITIAL_FORM = { name: '', intake: '', quotas: { KCET: '', COMEDK: '', MANAGEMENT: '' } };
 
@@ -69,11 +70,7 @@ const Programs = () => {
         {canCreate && (
           <button onClick={() => { setShowForm((v) => !v); setFormError(''); }}
             className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-blue-700 transition-colors shadow-sm shadow-blue-200">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              {showForm
-                ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                : <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />}
-            </svg>
+            {showForm ? <HiXMark className="w-4 h-4" /> : <HiPlus className="w-4 h-4" />}
             {showForm ? 'Cancel' : 'New Program'}
           </button>
         )}
@@ -148,9 +145,7 @@ const Programs = () => {
         <div className="bg-red-50 border border-red-200 rounded-xl px-5 py-4 text-sm text-red-600">{error}</div>
       ) : programs.length === 0 ? (
         <div className="bg-white rounded-2xl border border-slate-200 py-20 text-center">
-          <svg className="w-10 h-10 text-slate-200 mx-auto mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-          </svg>
+          <HiAcademicCap className="w-10 h-10 text-slate-200 mx-auto mb-3" />
           <p className="text-sm text-slate-400">No programs yet.{canCreate ? ' Create one to get started.' : ''}</p>
         </div>
       ) : (

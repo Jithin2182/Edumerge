@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../api/auth';
 import { useAuth } from '../context/AuthContext';
+import { HiAcademicCap, HiCheckCircle, HiChartBarSquare, HiUsers } from 'react-icons/hi2';
 
 const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -37,9 +38,7 @@ const Login = () => {
         <div className="relative">
           <div className="flex items-center gap-3 mb-12">
             <div className="w-9 h-9 bg-white/20 rounded-xl flex items-center justify-center">
-              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-              </svg>
+              <HiAcademicCap className="w-5 h-5 text-white" />
             </div>
             <span className="text-white font-bold text-xl tracking-tight">EduMerge</span>
           </div>
@@ -55,17 +54,15 @@ const Login = () => {
         {/* Feature list */}
         <div className="relative space-y-4">
           {[
-            { icon: 'M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z', label: 'KCET, COMEDK & Management quotas' },
-            { icon: 'M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605', label: 'Real-time seat fill dashboard' },
-            { icon: 'M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z', label: 'Role-based access control' },
-          ].map((f) => (
-            <div key={f.label} className="flex items-center gap-3">
+            { Icon: HiCheckCircle,    label: 'KCET, COMEDK & Management quotas' },
+            { Icon: HiChartBarSquare, label: 'Real-time seat fill dashboard' },
+            { Icon: HiUsers,          label: 'Role-based access control' },
+          ].map(({ Icon, label }) => (
+            <div key={label} className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
-                <svg className="w-4 h-4 text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d={f.icon} />
-                </svg>
+                <Icon className="w-4 h-4 text-blue-200" />
               </div>
-              <span className="text-blue-100 text-sm">{f.label}</span>
+              <span className="text-blue-100 text-sm">{label}</span>
             </div>
           ))}
         </div>
@@ -77,9 +74,7 @@ const Login = () => {
           {/* Mobile logo */}
           <div className="lg:hidden flex items-center gap-2 mb-8">
             <div className="w-8 h-8 bg-blue-600 rounded-xl flex items-center justify-center">
-              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5z" />
-              </svg>
+              <HiAcademicCap className="w-4 h-4 text-white" />
             </div>
             <span className="font-bold text-slate-900">EduMerge CRM</span>
           </div>
