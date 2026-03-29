@@ -11,6 +11,8 @@ app.use(express.json());
 
 // Preload models
 require("./models/User");
+require("./models/Program");
+require("./models/Applicant");
 
 // Load routes
 const routes = require("./routes");
