@@ -124,11 +124,11 @@ Create similar users for:
 
 ## Demo Credentials
 
-NAME | Email | Password
+    NAME | Email | Password
 
-Admin | admin@edumerge.com | 123456
-Admission Officer | officer@edumerge.com | 123456
-Management | management@edumerge.com | 123456
+    Admin | admin@edumerge.com | 123456
+    Admission Officer | officer@edumerge.com | 123456
+    Management | management@edumerge.com | 123456
 
 ---
 
@@ -183,7 +183,7 @@ INST/2026/UG/CSE/KCET/0001
 ## Environment Variables
 
 PORT=5000
-MONGO_URI=mongodb+srv://jithinchinnu75_db_user:Edumerge_Assessment@edumerge-cluster.yaucgfz.mongodb.net/
+MONGO_URI=mongodb+srv://jithinchinnu75_db_user:Edumerge_*******@edumerge-cluster.yaucgfz.mongodb.net/
 JWT_SECRET=ap3JK57K36r4CGop0yZKGjxlODxeOOi8XyEk2YJmLC2
 DB_NAME=edumerge_db
 
