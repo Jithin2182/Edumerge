@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.use("/auth", require("./auth"));
 router.use("/programs", require("./programs"));
+router.use("/applicants", require("./applicants"));
 
 module.exports = router;
