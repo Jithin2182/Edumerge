@@ -183,8 +183,8 @@ INST/2026/UG/CSE/KCET/0001
 ## Environment Variables
 
     PORT=5000
-    MONGO_URI=mongodb+srv://jithinchinnu75_db_user:Edumerge_*******@edumerge-cluster.yaucgfz.mongodb.net/
-    JWT_SECRET=ap3JK57K36r4CGop0yZKGjxlODxeOOi8XyEk2YJmLC2
+    MONGO_URI=mongodb+srv://****user****:Edumerge_****pwd***@edumerge-cluster.yau**.mongodb.net/
+    JWT_SECRET=ap3*******r4CGop**************XyEk2YJmLC2
     DB_NAME=edumerge_db
 
 ---
