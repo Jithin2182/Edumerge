@@ -9,8 +9,8 @@ const getProgramById = require("./../../controllers/program/getProgramById");
 const getPrograms = require("./../../controllers/program/getPrograms");
 
 // Define routes
-router.post("/programs", protect, authorize("ADMIN"), createProgram);
-router.get("/programs/:id", protect, getProgramById);
-router.get("/programs", protect, getPrograms);
+router.post("/", protect, authorize("ADMIN"), createProgram);
+router.get("/:id", protect, getProgramById);
+router.get("/", protect, getPrograms);
 
 module.exports = router;

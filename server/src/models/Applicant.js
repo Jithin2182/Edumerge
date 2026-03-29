@@ -46,7 +46,6 @@ const applicantSchema = new mongoose.Schema(
 
     admissionNumber: {
       type: String,
-      default: null,
       unique: true,
       sparse: true,
     },

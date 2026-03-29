@@ -10,11 +10,11 @@ const getAllApplicants = require("./../../controllers/applicant/getAllApplicants
 const getApplicantById = require("./../../controllers/applicant/getApplicantById");
 const updateFeeStatus = require("./../../controllers/applicant/updateFeeStatus");
 
-router.post("/applicants", protect, authorize("ADMIN", "ADMISSION_OFFICER"), createApplicant);
-router.get("/applicants", protect, getAllApplicants);
-router.get("/applicants/:id", protect, getApplicantById);
-router.put("/applicants/:id", protect, authorize("ADMIN", "ADMISSION_OFFICER"), updateApplicant);
-router.patch("/applicants/:id/fee-status", protect, authorize("ADMIN", "ADMISSION_OFFICER"), updateFeeStatus);
-router.delete("/applicants/:id", protect, authorize("ADMIN"), deleteApplicant);
+router.post("/", protect, authorize("ADMIN", "ADMISSION_OFFICER"), createApplicant);
+router.get("/", protect, getAllApplicants);
+router.get("/:id", protect, getApplicantById);
+router.put("/:id", protect, authorize("ADMIN", "ADMISSION_OFFICER"), updateApplicant);
+router.patch("/:id/fee-status", protect, authorize("ADMIN", "ADMISSION_OFFICER"), updateFeeStatus);
+router.delete("/:id", protect, authorize("ADMIN"), deleteApplicant);
 
 module.exports = router;
